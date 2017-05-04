@@ -1,33 +1,34 @@
 package geometries;
 
 import primitives.*;
+
 public class Sphere extends RadialGeometry {
 	private Point3D _center;
 
-	//default cons
-	public Sphere(){
+	// default cons
+	public Sphere() {
 		super();
-		this._center=new Point3D();
+		this._center = new Point3D();
 	}
-	
-	//copy cons
-	public Sphere (Sphere sphere){
+
+	// copy cons
+	public Sphere(Sphere sphere) {
 		super(sphere._radius);
-		this._center=new Point3D(sphere._center);
+		this._center = new Point3D(sphere._center);
 	}
-	
-	//full cons
-	public Sphere(double radius, Point3D center){
+
+	// full cons
+	public Sphere(double radius, Point3D center) {
 		super(radius);
-		this._center=new Point3D(center);
+		this._center = new Point3D(center);
 	}
-		
-	//getter
+
+	// getter
 	public Point3D getCenter() {
 		return _center;
 	}
 
-	//setter 
+	// setter
 	public void setCenter(Point3D _center) {
 		this._center = new Point3D(_center);
 	}

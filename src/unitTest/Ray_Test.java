@@ -11,23 +11,24 @@ import primitives.Vector;
 
 public class Ray_Test {
 
-	
-	//test ToString
+	// test ToString
 	@Test
 	public void testToString() {
-		Ray _Ray=new Ray(new Point3D(new Coordinate(3),new Coordinate(2),new Coordinate(4)),new Vector(new Point3D(new Coordinate(3),new Coordinate(3),new Coordinate(3))));
-		
+		Ray _Ray = new Ray(new Point3D(new Coordinate(3), new Coordinate(2), new Coordinate(4)),
+				new Vector(new Point3D(new Coordinate(3), new Coordinate(3), new Coordinate(3))));
+
 		assertEquals("Point: ( 3.00 , 2.00 , 4.00 )\nDirection: ( 0.58 , 0.58 , 0.58 )", _Ray.toString());
 	}
 
-	
-	//test CompareTo
+	// test CompareTo
 	@Test
 	public void testCompareTo() {
-		Ray _Ray1=new Ray(new Point3D(new Coordinate(3),new Coordinate(2),new Coordinate(4)),new Vector(new Point3D(new Coordinate(3),new Coordinate(3),new Coordinate(3))));
-		Ray _Ray2=new Ray(new Point3D(new Coordinate(3),new Coordinate(2),new Coordinate(4)),new Vector(new Point3D(new Coordinate(3),new Coordinate(3),new Coordinate(3))));
-		
-		assertEquals(0,_Ray1.compareTo(_Ray2));
+		Ray _Ray1 = new Ray(new Point3D(new Coordinate(3), new Coordinate(2), new Coordinate(4)),
+				new Vector(new Point3D(new Coordinate(3), new Coordinate(3), new Coordinate(3))));
+		Ray _Ray2 = new Ray(new Point3D(new Coordinate(3), new Coordinate(2), new Coordinate(4)),
+				new Vector(new Point3D(new Coordinate(3), new Coordinate(3), new Coordinate(3))));
+
+		assertEquals(0, _Ray1.compareTo(_Ray2));
 	}
 
 }
