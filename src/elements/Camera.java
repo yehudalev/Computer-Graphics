@@ -14,6 +14,7 @@ public class Camera{
 		this._P0=new Point3D();
 		this._vUp=new Vector();
 		this._vTo=new Vector();
+	    this._vRight=new Vector();
 	}
 	
 	//copy cons
@@ -21,6 +22,7 @@ public class Camera{
 		this._P0=new Point3D(camera._P0);
 		this._vUp=new Vector(camera._vUp);
 		this._vTo=new Vector(camera._vTo);
+		this._vRight=new Vector(this._vUp.crossProduct(_vTo));
 	}
 	
 	//full cons
@@ -53,10 +55,12 @@ public class Camera{
 	//setters
 	public void set_vUp(Vector vUp){
 		this._vUp=new Vector(vUp);
+		this._vRight=this._vUp.crossProduct(_vTo);
 	}
 	
 	public void set_vTo(Vector vTo){
 		this._vTo=new Vector(vTo);
+		this._vRight=this._vUp.crossProduct(_vTo);
 	}
 	
 	public void setP0(Point3D P0){
@@ -83,14 +87,14 @@ public class Camera{
 	
 		Vector vUp=new Vector(this._vUp);
 		Vector vRight=new Vector(this._vRight);
-		
+	
 		//calculate ratio pixel width as Rx and ratio pixel height as Ry
-		double Rx=screenWidth/Nx;
-		double Ry=screenHeight/Ny;
+		double Rx=screenWidth/(double)Nx;
+		double Ry=screenHeight/(double)Ny;
 		
 		//calculate the distance that we need to move from Pc,  A is right/left  and B is toward or back 
-		double A=((x-(Nx/2.f))*Rx)+(Rx/2.f);
-		double B=((y-(Ny/2.f))*Ry)+(Ry/2.f);
+		double A=((x-(Nx/(double)2))*Rx)+(Rx/(double)2);
+		double B=((y-(Ny/(double)2))*Ry)+(Ry/(double)2);
 	
 		//calculate Pc
 		Point3D tmpP=new Point3D(this._P0);

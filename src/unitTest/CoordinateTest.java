@@ -9,6 +9,8 @@ import org.junit.Test;
 
 public class CoordinateTest {
 
+	
+	//compareTo Test 
 	@Test
 	public void compareToTest() {
 		Coordinate coordinate1=new Coordinate(11.89999);
@@ -19,6 +21,7 @@ public class CoordinateTest {
 		assertEquals(0, s);
 		
 	}
+	//compareTo Test 
 	@Test
 	public void compareToTest2() {
 		Coordinate coordinate1=new Coordinate(11.9);
@@ -29,6 +32,8 @@ public class CoordinateTest {
 		assertEquals(0, s);		
 	}
 	
+	
+	//compareTo Test 
 	@Test
 	public void compareToTest3() {
 		Coordinate coordinate1=new Coordinate(11.3899);
@@ -38,6 +43,8 @@ public class CoordinateTest {
 		
 		assertEquals(-1, s);		
 	}
+	
+	//add Test :Between numbers+
 	@Test
 	public void addTest() {
 		Coordinate coordinate1=new Coordinate(11.5);
@@ -47,6 +54,7 @@ public class CoordinateTest {
 		assertEquals(22.9, coordinate1.get_coordinate(),0.0001);
     }
 	
+	//add Test :Between num+ and num-
 	@Test
 	public void addTest2() {
 		Coordinate coordinate1=new Coordinate(11.5);
@@ -55,6 +63,18 @@ public class CoordinateTest {
 		coordinate1.add(coordinate2);
 		assertEquals(1.2, coordinate1.get_coordinate(),0.0001);
 	}
+	
+	//add Test :Between num+ and 0
+	@Test
+	public void addTest3() {
+		Coordinate coordinate1=new Coordinate(11.5);
+		Coordinate coordinate2=new Coordinate(0);
+		
+		coordinate1.add(coordinate2);
+		assertEquals(11.5, coordinate1.get_coordinate(),0.0001);
+	}
+	
+	//subtract Test :Between numbers+
 	@Test
 	public void subtractTest() {
 		Coordinate coordinate1=new Coordinate(11.5);
@@ -63,6 +83,8 @@ public class CoordinateTest {
 		coordinate1.subtract(coordinate2);
 		assertEquals(0.2, coordinate1.get_coordinate(),0.0001);
 	}
+	
+	//subtract Test :Between num+ and num-
 	@Test
 	public void subtractTest2() {
 		Coordinate coordinate1=new Coordinate(11.5);
@@ -71,6 +93,8 @@ public class CoordinateTest {
 		coordinate1.subtract(coordinate2);
 		assertEquals(22.8, coordinate1.get_coordinate(),0.0001);
 	}
+	
+	//toString Test
 	@Test
 	public void toStringTest() {
 		Coordinate coordinate1=new Coordinate(11.55111);

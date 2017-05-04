@@ -11,6 +11,8 @@ import primitives.Vector;
 
 public class Point3D_Test {
 	
+	
+	//testTo String
 	@Test
 	public void testToString() {
 		Point3D point3D=new Point3D(new Coordinate(2.999999),new Coordinate(6.499999),new Coordinate(-3));
@@ -18,6 +20,7 @@ public class Point3D_Test {
 		
 	}
 
+	//test CompareTo Point3D
 	@Test
 	public void testCompareToPoint3D() {
 		Point3D point1=new Point3D(new Coordinate(2.999999),new Coordinate(6.4499999),new Coordinate(-3));
@@ -26,6 +29,7 @@ public class Point3D_Test {
 		assertEquals(0, point1.compareTo(point2));
 	}
 
+	//test Add: Between two vectors
 	@Test
 	public void testAdd() {
 		Point3D point1=new Point3D(new Coordinate(2.35),new Coordinate(6.4999999),new Coordinate(-3));
@@ -36,6 +40,7 @@ public class Point3D_Test {
 		assertEquals(0,point1.compareTo(result));
 	}
 
+	//test Subtract: Between two vectors
 	@Test
 	public void testSubtract() {
 		Point3D point1=new Point3D(new Coordinate(5.3),new Coordinate(6.4999999),new Coordinate(-3));
@@ -78,26 +83,15 @@ instance.add(vector);
 assertTrue( "Add failed! ",(instance.compareTo(new Point3D(new Coordinate(6.0),new Coordinate( -7.0),new Coordinate( 9.0))) == 0));
 
 }
-/*
+
 @Test
 public void Test04() {
 System.out.println("Test04: Point3D subtract");
 Vector vector = new Vector(1.0, 2.0, 3.0);
 Point3D instance = new Point3D(4.0, 5.0, 6.0);
 instance.subtract(vector);
-assertTrue(instance.compareTo(new Point3D(3.0, 3.0, 3.0)) == 0, "Substruct failed! ");
+assertTrue( "Substruct failed! ",instance.compareTo(new Point3D(3.0, 3.0, 3.0)) == 0);
 }
 
-@Test
-public void Test05() {
-System.out.println("Test05: Point3D distance");
-Point3D point = new Point3D(-20.5, 55, 9.25);
-Point3D instance = new Point3D(75, -10, -100);
-double expResult = 159.0;
-double result = instance.distance(point);
-assertEquals(expResult, result, 0.01, "Worng distance");
 
-}
-
-*/
 }

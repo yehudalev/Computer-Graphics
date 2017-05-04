@@ -12,7 +12,7 @@ import primitives.Vector;
 public class Vector_Test {
 	
 	
-
+	//test Add Between tow vectors-
 	@Test
 	public void testAdd() {
 	Vector vector1=new Vector(new Point3D(new Coordinate(1),new Coordinate(1),new Coordinate(1)));
@@ -23,6 +23,8 @@ public class Vector_Test {
 	assertEquals(0,vector1.compareTo(result));
 	}
 	
+	
+	//test Add Between vector- end vector+
 	@Test
 	public void testAdd2() {
 	Vector vector1=new Vector(new Point3D(new Coordinate(9),new Coordinate(8),new Coordinate(7)));
@@ -33,6 +35,8 @@ public class Vector_Test {
 	assertEquals(0,vector1.compareTo(result));
 	}
 	
+	
+	//test Add Between tow vectors-
 	@Test
 	public void testAdd3() {
 		Vector vector1=new Vector(new Point3D(new Coordinate(-9),new Coordinate(-8),new Coordinate(-7)));
@@ -43,6 +47,7 @@ public class Vector_Test {
 		assertEquals(0,vector1.compareTo(result));
 		}
 	
+	//test Add Between vector- end vector(0,0,0)
 	@Test
 	public void testAdd4() {
 		Vector vector1=new Vector(new Point3D(new Coordinate(9),new Coordinate(8),new Coordinate(7)));
@@ -53,6 +58,7 @@ public class Vector_Test {
 		assertEquals(0,vector1.compareTo(result));
 		}
 	
+	//test Add Between tow vectors+-
 	@Test
 	public void testAdd5() {
 		Vector vector1=new Vector(new Point3D(new Coordinate(9),new Coordinate(-8),new Coordinate(7)));
@@ -63,6 +69,8 @@ public class Vector_Test {
 		assertEquals(0,vector1.compareTo(result));
 		}
 
+	
+	//test Subtract Between tow vectors+
 	@Test
 	public void testSubtract() {
 		
@@ -74,6 +82,7 @@ public class Vector_Test {
 		assertEquals(0,vector1.compareTo(result));
 	}
 	
+	//test Subtract Between vector- end vector+
 	@Test
 	public void testSubtract2() {
 		
@@ -85,6 +94,7 @@ public class Vector_Test {
 		assertEquals(0,vector1.compareTo(result));
 	}
 	
+	//test Subtract Between tow vectors- 
 	@Test
 	public void testSubtract3() {
 		
@@ -96,6 +106,8 @@ public class Vector_Test {
 		assertEquals(0,vector1.compareTo(result));
 	}
 	
+	
+	//test Subtract Between vector- end vector(0,0,0) 
 	@Test
 	public void testSubtract4() {
 		
@@ -107,6 +119,8 @@ public class Vector_Test {
 		assertEquals(0,vector1.compareTo(result));
 	}
 	
+	
+	//test Subtract 
 	@Test
 	public void testSubtract5() {
 		
@@ -305,7 +319,7 @@ public class Vector_Test {
 			
 	}
 	
-
+    //test CompareTo
 	@Test
 	public void testCompareTo() {
 		Vector vector1=new Vector(new Point3D(new Coordinate(2),new Coordinate(3),new Coordinate(3)));
@@ -314,6 +328,7 @@ public class Vector_Test {
 		assertEquals(0, vector1.compareTo(vector2));
 	}
 	
+	//test CompareTo
 	@Test
 	public void testCompareTo2() {
 		Vector vector1=new Vector(new Point3D(new Coordinate(2.999999),new Coordinate(6.5),new Coordinate(-3)));
@@ -322,7 +337,7 @@ public class Vector_Test {
 		assertEquals(0, vector1.compareTo(vector2));
 	}
 	
-	
+	//test ToString
 	@Test
 	public void testToString() {
 		Vector vector1=new Vector(new Point3D(new Coordinate(2.999999),new Coordinate(6.499999),new Coordinate(-3)));
