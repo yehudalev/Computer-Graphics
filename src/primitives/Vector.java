@@ -87,7 +87,8 @@ public class Vector implements Comparable<Vector> {
 	// return the current vector
 	public double length() {
 
-		return Math.sqrt(Math.pow(this._head._x.get_coordinate(), 2) + Math.pow(this._head._y.get_coordinate(), 2)
+		return Math.sqrt(Math.pow(this._head._x.get_coordinate(), 2) 
+				+ Math.pow(this._head._y.get_coordinate(), 2)
 				+ Math.pow(this._head.get_z().get_coordinate(), 2));
 
 	}
