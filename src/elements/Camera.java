@@ -107,18 +107,21 @@ public class Camera {
 
 		// calculate vRight - vUp into vRight
 		vRight.subtract(vUp);
-
+		
 		// calculate P, the point in the view plan the the ray pass there.
 		Pc.add(vRight);
 		Point3D P = new Point3D(Pc);
 
 		// calculate the direction of the ray P-P0
+		
+		
 		Point3D tmp = new Point3D(P);
 		tmpV = new Vector(this._P0);
 		tmp.subtract(tmpV);
 		Vector direction = new Vector(tmp);
 
 		// the final calculate- the ray.
+		//return new Ray(this._P0, direction);
 		return new Ray(P, direction);
 	}
 }

@@ -1,8 +1,11 @@
 package geometries;
+import java.util.List;
+
+import java.util.ArrayList;
 
 import primitives.*;
 
-public class Plane {
+public class Plane implements Geometry {
 	private Vector _normal;
 	private Point3D _Q;
 
@@ -25,7 +28,8 @@ public class Plane {
 	}
 
 	// getters
-	public Vector getNnormal() {
+	@Override
+	public Vector getNormal(Point3D point) {
 		return _normal;
 	}
 
@@ -41,5 +45,31 @@ public class Plane {
 	public void setQ(Point3D _Q) {
 		this._Q = new Point3D(_Q);
 	}
+
+	
+	//The function returns a list of all the points of intersection with the plane
+	@Override
+	public List<Point3D> FindIntersections(Ray ray) {
+
+		List<Point3D> _intersectionPointList=new ArrayList<>();
+		
+		Vector _temNormal = new Vector(_normal);
+		_temNormal.scale(-1.0);
+		Vector _P0_Q = new Vector(_Q,ray.get_POO());
+		double _t = _temNormal.dotProduct(_P0_Q) / (double) (_normal.dotProduct(ray.get_direction()));
+		if (_t >= 0) {
+			
+			Vector _tmp_v = new Vector(ray.get_direction());
+			_tmp_v.scale(_t);
+			Point3D _new_p=new Point3D(ray.get_POO());
+			_new_p.add(_tmp_v);
+			_intersectionPointList.add(_new_p);
+
+		}
+
+		return _intersectionPointList;
+	}
+
+
 
 }

@@ -23,6 +23,16 @@ public class Vector implements Comparable<Vector> {
 	public Vector(Vector vector) {
 		_head = new Point3D(vector._head);
 	}
+	
+	//cons by 2 point
+	public Vector(Point3D p1, Point3D p2)
+	{
+		double _x=p2._x.get_coordinate()-p1._x.get_coordinate();
+		double _y=p2._y.get_coordinate()-p1._y.get_coordinate();
+		double _z=p2.get_z().get_coordinate()-p1.get_z().get_coordinate();
+				
+		_head = new Point3D( _x,_y,_z);
+	}
 
 	// getter and setter
 
