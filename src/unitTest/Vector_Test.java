@@ -498,4 +498,15 @@ public class Vector_Test {
 		Vector VResult = new Vector(new Point3D(new Coordinate(-2), new Coordinate(-2), new Coordinate(-2)));
 		assertEquals(V1.toString(), VResult.toString());
 	}
+	
+	  @Test
+	    public void Test05() {
+	        System.out.println("Test05: Point3D distance");
+	        Point3D point = new Point3D(-20.5, 55, 9.25);
+	        Point3D instance = new Point3D(75, -10, -100);
+	        double expResult = 159.0;
+	        double result = instance.distance(point);
+	        assertEquals( "Worng distance",expResult, result, 0.01);
+
+	    }
 }
