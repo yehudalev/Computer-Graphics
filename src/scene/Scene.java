@@ -24,8 +24,7 @@ public class Scene {
 		_background=new Color(0, 0, 0);
 		_ambientLight=new AmbientLight();
 		_camera=new Camera();
-		_screenDistance=-1;
-		
+		_screenDistance=100;
 	}
 	public Scene (Scene scene)
 	{
@@ -33,6 +32,7 @@ public class Scene {
 		_ambientLight=new AmbientLight(scene._ambientLight);
 		_camera=new Camera(scene._camera);
 		_screenDistance=scene._screenDistance;
+		_geometries.addAll(scene._geometries);
 		
 	}
 	public Scene(AmbientLight aLight, Color background,

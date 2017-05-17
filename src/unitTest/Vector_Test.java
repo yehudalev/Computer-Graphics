@@ -500,6 +500,7 @@ public class Vector_Test {
 	}
 	
 	  @Test
+	  //distance test
 	    public void Test05() {
 	        System.out.println("Test05: Point3D distance");
 	        Point3D point = new Point3D(-20.5, 55, 9.25);
