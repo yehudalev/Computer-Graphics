@@ -17,9 +17,9 @@ public class Render {
 	
 	private Scene _scene;
 	private ImageWriter _imageWriter;
-	private final int RECURSION_LEVEL = 3;
+	//private final int RECURSION_LEVEL = 3;
 	
-	//cons
+	//Constructor 
 	public Render(ImageWriter imageWriter, Scene scene){
 		
 		_scene=new Scene(scene);
@@ -27,14 +27,17 @@ public class Render {
 		
 	}
 	
+	
+	//operations 
+	
+	//render image 
 	public void renderImage(){
 		for (int i=0; i<this._imageWriter.getNx(); i++)
 			for(int j=0; j<this._imageWriter.getNy(); j++)
 			{
-				Ray ray=_scene.getCamera().constructRayThroughPixel(_imageWriter.getNx(), _imageWriter.getNy(), i, j,
-																			_scene.getScreenDistance(), _imageWriter.getWidth(), _imageWriter.getHeight());
+				Ray ray=_scene.getCamera().constructRayThroughPixel(_imageWriter.getNx(), _imageWriter.getNy(), i, j,_scene.getScreenDistance(), _imageWriter.getWidth(), _imageWriter.getHeight());
 				List<Point3D> interSectionPoints= getSceneRayIntersections(ray);
-				if (interSectionPoints == null)
+				if (interSectionPoints.isEmpty())
 					_imageWriter.writePixel(j, i, _scene.getBackground());
 				else 
 				{
@@ -43,6 +46,8 @@ public class Render {
 				}
 			}
 	}
+	
+	//services for the render-image operation
 	private List<Point3D> getSceneRayIntersections(Ray ray){
 		Iterator<Geometry> geometries = _scene.getGeometriesIterator();
 		List<Point3D> intersectionPoints = new ArrayList<Point3D>();
@@ -56,10 +61,12 @@ public class Render {
 		return intersectionPoints;
 	}
 	
+	//calculate point color
 	private Color calcColor(Point3D point){
 		return _scene.getAmbientLight().getIntensity();
 	}
 	
+	//get the closet point to calculate the color for our image
 	private Point3D getClosetPoint(List<Point3D> intersectionPoints){
 		double distance = Double.MAX_VALUE;
 		Point3D P0 =_scene.getCamera().getP0();
@@ -75,20 +82,23 @@ public class Render {
 		return minDistancePoint;
 	}
 	
-
+	//write the scene to image
+	public void writeToImage(){
+		this._imageWriter.writeToimage();
+	}
+	
+	
 	/*
 	private Entry<Geometry, Point3D> findClosesntIntersection(Ray ray)
 	{
 		
 	}
 	*/
-	public void printGrid(int interval)
+	/*public void printGrid(int interval)
 	{
 		
-	}
-	public void writeToImage(){
-		
-	}
+	}*/
+	
 	
 
 	/*
