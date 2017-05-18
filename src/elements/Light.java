@@ -4,7 +4,7 @@ import java.awt.Color;
 
 
 
-public class Light {
+abstract public class Light {
 	
 	protected Color _color;
 	
@@ -21,8 +21,5 @@ public class Light {
 	}
 	
 	//operations
-	public Color getIntensity()
-	{
-		return null;
-	}
+	abstract public Color getIntensity();
 }

@@ -17,7 +17,7 @@ public class RenderTest
     public void basicRendering(){
          
     	Scene scene = new Scene(new AmbientLight(255,255,255), 
-				    			new Color(0.3f,0.5f,0.74f), 
+				    			new Color(0,255,0), 
 				    			new Camera(), 40);
          
         scene.addGeometry(new Sphere(50, new Point3D(0.0, 0.0, -50)));
