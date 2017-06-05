@@ -1,11 +1,12 @@
 package geometries;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
 import primitives.*;
 
-public class Sphere extends RadialGeometry implements Geometry {
+public class Sphere extends RadialGeometry {
 	private Point3D _center;
 
 	// default cons
@@ -24,6 +25,7 @@ public class Sphere extends RadialGeometry implements Geometry {
 	public Sphere(double radius, Point3D center) {
 		super(radius);
 		this._center = new Point3D(center);
+		
 	}
 
 	// getter
@@ -79,6 +81,11 @@ public class Sphere extends RadialGeometry implements Geometry {
 		Vector _normal = new Vector(_center, point);
 		_normal.normalize();
 		return _normal;
+	}
+
+	@Override
+	public Color getEmmission() {
+		return get_emmission();
 	}
 
 }

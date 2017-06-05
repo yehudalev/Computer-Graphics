@@ -55,6 +55,16 @@ public class Triangle_TestTest {
 	System.out.println(iPoint);
 	}
 
+	@Test
+    public void TestGetNormal()
+    {
+        Triangle triangle = new Triangle(new Point3D( 0,  1, -2),
+                new Point3D( 1, -1, -2),
+                new Point3D(-1, -1, -2));
+        Vector normal = triangle.getNormal(new Point3D());
+        System.out.println(normal);
+        assertEquals("Wrong Normal", normal.toString(),"( -0.00 , 0.00 , 1.00 )");
+    }
 
 
 }

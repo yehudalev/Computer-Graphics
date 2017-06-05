@@ -1,6 +1,8 @@
 package elements;
 
 import java.awt.Color;
+
+import primitives.Point3D;
 //import java.util.Map;
 
 public class AmbientLight extends Light {
@@ -23,12 +25,6 @@ public class AmbientLight extends Light {
 	public AmbientLight(int r, int g, int b) {
 		_color = new Color(r, g, b);
 	}
-	
-	/*
-	 * public AmbientLight(Map<String, String> attributes) {
-	 * 
-	 * }
-	 */	
 
 	//getters and setters
 	
@@ -52,10 +48,10 @@ public class AmbientLight extends Light {
 	//get intensity
 	@Override
 	public Color getIntensity() {
+		
 		float r=(float)(_color.getRed()*_Ka)/255;
 		float g=(float)(_color.getGreen()*_Ka)/255;
 		float b=(float)(_color.getBlue()*_Ka)/255;
 		return new Color(r, g, b);
-		
 	}
 }

@@ -1,11 +1,11 @@
 package geometries;
 import java.util.List;
-
+import java.awt.Color;
 import java.util.ArrayList;
 
 import primitives.*;
 
-public class Plane implements Geometry {
+public class Plane extends RadialGeometry {
 	private Vector _normal;
 	private Point3D _Q;
 
@@ -68,6 +68,11 @@ public class Plane implements Geometry {
 		}
 
 		return _intersectionPointList;
+	}
+
+	@Override
+	public Color getEmmission() {
+		return get_emmission();
 	}
 
 

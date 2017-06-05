@@ -1,6 +1,13 @@
 package geometries;
 
-public class RadialGeometry {
+import java.awt.Color;
+import java.util.List;
+
+import primitives.Point3D;
+import primitives.Ray;
+import primitives.Vector;
+
+public abstract class RadialGeometry extends Geometry {
 
 	protected double _radius;
 
@@ -27,4 +34,5 @@ public class RadialGeometry {
 	public void setRadius(double radius) {
 		_radius = radius;
 	}
+
 }

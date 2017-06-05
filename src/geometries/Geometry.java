@@ -1,10 +1,47 @@
 package geometries;
+
 import primitives.*;
 import primitives.Point3D;
+
+import java.awt.Color;
 import java.util.List;
 
-public interface Geometry {
+public abstract class Geometry {
 
-	public abstract List<Point3D> FindIntersections (Ray ray);
+	private Color _emmission = new Color(0, 0, 0);
+	private Material _material = new Material();
+	private double _nShininess = 1;
+
+	// operations that every classes that inherit this needs to implement those
+	// operations
+	public abstract List<Point3D> FindIntersections(Ray ray);
+
 	public abstract Vector getNormal(Point3D point);
+
+	public abstract Color getEmmission();
+
+	//getters and setters
+	public Color get_emmission() {
+		return _emmission;
+	}
+
+	public void set_emmission(Color _emmission) {
+		this._emmission = new Color(_emmission.getRGB());
+	}
+
+	public Material get_material() {
+		return _material;
+	}
+
+	public void set_material(Material _material) {
+		this._material = new Material(_material);
+	}
+
+	public double get_nShininess() {
+		return _nShininess;
+	}
+
+	public void set_nShininess(double _nShininess) {
+		this._nShininess = _nShininess;
+	}
 }

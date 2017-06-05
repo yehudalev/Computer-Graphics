@@ -2,6 +2,8 @@ package elements;
 
 import java.awt.Color;
 
+import primitives.Point3D;
+
 
 
 abstract public class Light {
@@ -22,4 +24,6 @@ abstract public class Light {
 	
 	//operations
 	abstract public Color getIntensity();
+	
+	
 }

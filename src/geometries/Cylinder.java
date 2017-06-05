@@ -1,5 +1,8 @@
 package geometries;
 
+import java.awt.Color;
+import java.util.List;
+
 import primitives.*;
 
 public class Cylinder extends RadialGeometry {
@@ -44,6 +47,24 @@ public class Cylinder extends RadialGeometry {
 
 	public void setAxisDirection(Vector _axisDirection) {
 		this._axisDirection = new Vector(_axisDirection);
+	}
+
+	@Override
+	public List<Point3D> FindIntersections(Ray ray) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Vector getNormal(Point3D point) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Color getEmmission() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

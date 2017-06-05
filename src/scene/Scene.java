@@ -18,7 +18,7 @@ public class Scene {
 	private String _sceneName = "scene";
 	
 	
-	// ***************** Constructors ********************** //
+	//default cons
 	public Scene()
 	{
 		_background=new Color(0, 0, 0);
@@ -26,6 +26,8 @@ public class Scene {
 		_camera=new Camera();
 		_screenDistance=100;
 	}
+	
+	//copy cons
 	public Scene (Scene scene)
 	{
 		_background=new Color(scene._background.getRGB());
@@ -35,6 +37,8 @@ public class Scene {
 		_geometries.addAll(scene._geometries);
 		
 	}
+	
+	//full cons
 	public Scene(AmbientLight aLight, Color background,
 	Camera camera, double screenDistance)
 	{
@@ -46,6 +50,7 @@ public class Scene {
 	}
 	
 
+	//getters and setters
 	public Color getBackground()
 	{
 		return _background;
@@ -86,11 +91,12 @@ public class Scene {
 		
 	}
 	
-	
+	//operations
 	public void addGeometry(Geometry geometry)
 	{
 		_geometries.add(geometry);
 	}
+	//get iterator for geometric
 	public Iterator<Geometry> getGeometriesIterator()
 	{
 		return _geometries.iterator();

@@ -1,12 +1,13 @@
 package geometries;
 
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
 import primitives.*;
 
-public class Triangle implements Geometry{
+public class Triangle extends RadialGeometry{
 
 	private Point3D _p1;
 	private Point3D _p2;
@@ -113,6 +114,10 @@ public class Triangle implements Geometry{
 		_normal.scale(-1);
 		return _normal;
 	}
-	
+
+	@Override
+	public Color getEmmission() {
+		return get_emmission();
+	}
 	
 }
