@@ -1,5 +1,5 @@
 package primitives;
-
+//
 public class Coordinate implements Comparable<Coordinate> {
 
 	private double _coordinate;

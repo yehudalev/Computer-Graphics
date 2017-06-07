@@ -1,5 +1,5 @@
 package primitives;
-
+//
 public class Vector implements Comparable<Vector> {
 
 	private Point3D _head;

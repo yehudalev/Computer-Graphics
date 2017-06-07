@@ -1,5 +1,5 @@
 package primitives;
-
+//
 public class Ray implements Comparable<Ray> {
 
 	private Point3D _POO;
