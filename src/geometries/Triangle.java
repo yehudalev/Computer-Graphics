@@ -115,8 +115,8 @@ public class Triangle extends RadialGeometry{
 		return _normal;
 	}
 
-	@Override
-	public Color getEmmission() {
+
+	public Color get_emmission() {
 		return get_emmission();
 	}
 	

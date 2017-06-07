@@ -64,7 +64,7 @@ public class Render {
 	// calculate point color
 	private Color calcColor(Geometry geometry, Point3D point) {
 		Color ambientLight = _scene.getAmbientLight().getIntensity();
-		Color emissionLight = geometry.getEmmission();
+		Color emissionLight = geometry.get_emmission();
 		
 		//we need to check here it is not finished
 		Color I0 = new Color(ambientLight.getRed() + emissionLight.getRed(),

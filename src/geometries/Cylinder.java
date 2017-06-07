@@ -61,8 +61,8 @@ public class Cylinder extends RadialGeometry {
 		return null;
 	}
 
-	@Override
-	public Color getEmmission() {
+
+	public Color get_emmission() {
 		// TODO Auto-generated method stub
 		return null;
 	}
