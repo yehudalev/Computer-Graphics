@@ -25,14 +25,27 @@ public class Triangle extends RadialGeometry{
 		this._p1 = new Point3D(triangle._p1);
 		this._p2 = new Point3D(triangle._p2);
 		this._p3 = new Point3D(triangle._p3);
+		this.set_emmission(triangle.get_emmission());
+		this.set_material(triangle.get_material());
+		this.set_nShininess(triangle.get_nShininess());
 	}
 
 	// full cons
+	public Triangle(Point3D p1, Point3D p2, Point3D p3,Color _em,Material _mat,double _nSh) {
+		this._p1 = new Point3D(p1);
+		this._p2 = new Point3D(p2);
+		this._p3 = new Point3D(p3);
+		this.set_emmission(_em);
+		this.set_material(_mat);
+		this.set_nShininess(_nSh);
+	}
 	public Triangle(Point3D p1, Point3D p2, Point3D p3) {
 		this._p1 = new Point3D(p1);
 		this._p2 = new Point3D(p2);
 		this._p3 = new Point3D(p3);
+		
 	}
+	
 
 	// getters
 	public Point3D get_p1() {
@@ -116,8 +129,5 @@ public class Triangle extends RadialGeometry{
 	}
 
 
-	public Color get_emmission() {
-		return get_emmission();
-	}
 	
 }

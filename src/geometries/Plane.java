@@ -13,18 +13,32 @@ public class Plane extends RadialGeometry {
 	public Plane() {
 		this._normal = new Vector();
 		this._Q = new Point3D();
+	
 	}
 
 	// copy cons
 	public Plane(Plane plane) {
 		this._normal = new Vector(plane._normal);
 		this._Q = new Point3D(plane._Q);
+		this.set_emmission(plane.get_emmission());
+		this.set_material(plane.get_material());
+		this.set_nShininess(plane.get_nShininess());
 	}
 
 	// full cons
+	public Plane(Vector normal, Point3D q,Color _em,Material _mat,double _nSh) {
+		this._normal = new Vector(normal);
+		this._Q = new Point3D(q);
+		this.set_emmission(_em);
+		this.set_material(_mat);
+		this.set_nShininess(_nSh);
+		
+	}
 	public Plane(Vector normal, Point3D q) {
 		this._normal = new Vector(normal);
 		this._Q = new Point3D(q);
+	
+		
 	}
 
 	// getters
@@ -70,10 +84,7 @@ public class Plane extends RadialGeometry {
 		return _intersectionPointList;
 	}
 
-	
-	public Color get_emmission() {
-		return get_emmission();
-	}
+
 
 
 

@@ -27,6 +27,22 @@ public class Render {
 		_imageWriter = new ImageWriter(imageWriter);
 
 	}
+	//setters and getters
+	   public void setScene(Scene scene){
+	        _scene=new Scene(scene);
+	    }
+	    
+	    public void setImageWriter(ImageWriter imageWriter){
+	        _imageWriter=new ImageWriter(imageWriter);
+	    }
+	    
+	    public Scene getScene(){
+	        return _scene;
+	    }
+	    
+	    public ImageWriter getImageWriter(){
+	        return _imageWriter;
+	    }
 
 	// operations
 
@@ -63,13 +79,8 @@ public class Render {
 
 	// calculate point color
 	private Color calcColor(Geometry geometry, Point3D point) {
-		Color ambientLight = _scene.getAmbientLight().getIntensity();
-		Color emissionLight = geometry.get_emmission();
 		
-		//we need to check here it is not finished
-		Color I0 = new Color(ambientLight.getRed() + emissionLight.getRed(),
-				ambientLight.getGreen() + emissionLight.getGreen(), ambientLight.getBlue() + emissionLight.getBlue());
-		return I0;
+        return addColors(geometry.get_emmission(),_scene.getAmbientLight().getIntensity());
 	}
 
 	// get the closet point to calculate the color for our image
@@ -92,5 +103,25 @@ public class Render {
 	public void writeToImage() {
 		this._imageWriter.writeToimage();
 	}
+	
+	 private Color addColors(Color a, Color b){
+		 
+	       float _red=a.getRed()+b.getRed();
+	       float _green=a.getGreen()+b.getGreen();
+	       float _blue=a.getBlue()+b.getBlue();
+	       
+	       if(_red>250)
+	    	   _red=250;
+	       
+	       if(_red>250)
+	    	   _green=250;
+	       
+	       if(_blue>250)
+	    	   _blue=250;
+	       
+	       return new Color(_red, _green, _blue);
+	    }
+
+	
 
 }

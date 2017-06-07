@@ -20,12 +20,24 @@ public class Sphere extends RadialGeometry {
 	public Sphere(Sphere sphere) {
 		super(sphere._radius);
 		this._center = new Point3D(sphere._center);
+		this.set_emmission(sphere.get_emmission());
+		this.set_material(sphere.get_material());
+		this.set_nShininess(sphere.get_nShininess());
 	}
 
 	// full cons
+	public Sphere(double radius, Point3D center,Color _em,Material _mat,double _nSh) {
+		super(radius);
+		this._center = new Point3D(center);
+		this.set_emmission(_em);
+		this.set_material(_mat);
+		this.set_nShininess(_nSh);
+		
+	}
 	public Sphere(double radius, Point3D center) {
 		super(radius);
 		this._center = new Point3D(center);
+	
 		
 	}
 
@@ -85,8 +97,6 @@ public class Sphere extends RadialGeometry {
 	}
 
 	
-	public Color get_emmission() {
-		return get_emmission();
-	}
+
 
 }

@@ -13,7 +13,6 @@ public abstract class Geometry {
 	private double _nShininess = 1;
 
 	// operations that every classes that inherit this needs to implement those
-	// operations
 	public abstract List<Point3D> FindIntersections(Ray ray);
 
 	public abstract Vector getNormal(Point3D point);
