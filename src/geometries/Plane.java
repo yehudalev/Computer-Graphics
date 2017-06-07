@@ -70,8 +70,8 @@ public class Plane extends RadialGeometry {
 		return _intersectionPointList;
 	}
 
-	@Override
-	public Color getEmmission() {
+	
+	public Color get_emmission() {
 		return get_emmission();
 	}
 

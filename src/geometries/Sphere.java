@@ -13,6 +13,7 @@ public class Sphere extends RadialGeometry {
 	public Sphere() {
 		super();
 		this._center = new Point3D();
+		this.set_emmission(new Color(rgb));
 	}
 
 	// copy cons
@@ -84,7 +85,7 @@ public class Sphere extends RadialGeometry {
 	}
 
 	@Override
-	public Color getEmmission() {
+	public Color get_emmission() {
 		return get_emmission();
 	}
 
