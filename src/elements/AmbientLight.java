@@ -49,9 +49,12 @@ public class AmbientLight extends Light {
 	@Override
 	public Color getIntensity() {
 		
-		float r=(float)(_color.getRed()*_Ka)/250;
-		float g=(float)(_color.getGreen()*_Ka)/250;
-		float b=(float)(_color.getBlue()*_Ka)/250;
+		int r=(int)(_color.getRed()*_Ka);
+		System.out.println(r);
+		int g=(int)(_color.getGreen()*_Ka);
+		System.out.println(g);
+		int b=(int)(_color.getBlue()*_Ka);
+		System.out.println(b);
 		return new Color(r, g, b);
 	}
 }

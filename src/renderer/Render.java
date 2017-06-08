@@ -109,10 +109,11 @@ public class Render {
 	
 	 private Color addColors(Color a, Color b){
 		 
-	       float _red=a.getRed()+b.getRed();
-	       float _green=a.getGreen()+b.getGreen();
-	       float _blue=a.getBlue()+b.getBlue();
+	       int _red=a.getRed()+b.getRed();
+	       int _green=a.getGreen()+b.getGreen();
+	       int _blue=a.getBlue()+b.getBlue();
 	       
+<<<<<<< HEAD
 	       if(_red>1)
 	    	   _red=1;
 	       
@@ -123,6 +124,20 @@ public class Render {
 	    	   _blue=1;
 	       
 	       return new Color(_red/250, _green/250, _blue/250);
+=======
+	       if(_red>255)
+	    	   _red=255;
+	       
+	       if(_green>255)
+	    	   _green=255;
+	       
+	       if(_blue>255)
+	    	   _blue=255;
+	       System.out.println(_red);
+	       System.out.println(_green);
+	       System.out.println(_blue);
+	       return new Color(_red, _green, _blue);
+>>>>>>> 8c33b9096134e63b67140142b0420b6baecbfa91
 	    }
 
 	
