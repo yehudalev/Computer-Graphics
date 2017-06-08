@@ -50,11 +50,8 @@ public class AmbientLight extends Light {
 	public Color getIntensity() {
 		
 		int r=(int)(_color.getRed()*_Ka);
-		System.out.println(r);
 		int g=(int)(_color.getGreen()*_Ka);
-		System.out.println(g);
 		int b=(int)(_color.getBlue()*_Ka);
-		System.out.println(b);
 		return new Color(r, g, b);
 	}
 }
