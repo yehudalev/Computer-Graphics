@@ -21,11 +21,11 @@ public class DirectionalLight extends Light implements LightSource{
 	
 	@Override
 	public Color getIntensity() {
-		return this._color;
+		return new Color(this._color.getRGB());
 	}
 
 	public Vector getDirection() {
-		return direction;
+		return new Vector(this.direction);
 	}
 
 	public void setDirection(Vector direction) {
@@ -34,14 +34,12 @@ public class DirectionalLight extends Light implements LightSource{
 
 	@Override
 	public Color getIntensity(Point3D point) {
-		// TODO Auto-generated method stub
-				return null;
+		return new Color(_color.getRGB());
 	}
 
 	@Override
 	public Vector getL(Point3D point) {
-		// TODO Auto-generated method stub
-		return null;
+		return new Vector(this.direction);
 	}
 	
 	
