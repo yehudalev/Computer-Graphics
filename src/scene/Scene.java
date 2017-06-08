@@ -104,6 +104,11 @@ public class Scene {
 	public void addLight(LightSource light){
 		_lights.add(light);
 	}
+	
+	public Iterator<LightSource> getLightsIterator()
+	{
+		return _lights.iterator();
+	}
 
 
 }
