@@ -7,12 +7,12 @@ import primitives.Point3D;
 
 public class AmbientLight extends Light {
 	
-	private double _Ka = 0.9;
+	private double _Ka = 0.1;
 
 	//default cons
 	public AmbientLight() {
 		_color = new Color(255,255,255);
-		this._Ka = 0.95;
+		
 	}
 
 	//copy cons
