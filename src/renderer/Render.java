@@ -113,14 +113,14 @@ public class Render {
 	       float _green=a.getGreen()+b.getGreen();
 	       float _blue=a.getBlue()+b.getBlue();
 	       
-	       if(_red>250)
-	    	   _red=250;
+	       if(_red>1)
+	    	   _red=1;
 	       
-	       if(_green>250)
-	    	   _green=250;
+	       if(_green>1)
+	    	   _green=1;
 	       
-	       if(_blue>250)
-	    	   _blue=250;
+	       if(_blue>1)
+	    	   _blue=1;
 	       
 	       return new Color(_red/250, _green/250, _blue/250);
 	    }
