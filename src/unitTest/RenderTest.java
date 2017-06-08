@@ -17,7 +17,7 @@ public class RenderTest
     public void basicRendering(){
          
     	Scene scene = new Scene(new AmbientLight(255,255,255), 
-				    			new Color(0,255,0), 
+				    			new Color(0,0,0), 
 				    			new Camera(), 40);
          
         scene.addGeometry(new Sphere(50, new Point3D(0.0, 0.0, -50)));
@@ -48,7 +48,7 @@ public class RenderTest
         Render render = new Render(imageWriter, scene);
          
         render.renderImage();
-       //render.printGrid(50);
+     //   render.printGrid(50);
         render.writeToImage();
          
     }
