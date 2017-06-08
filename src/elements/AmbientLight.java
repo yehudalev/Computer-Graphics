@@ -12,7 +12,7 @@ public class AmbientLight extends Light {
 	//default cons
 	public AmbientLight() {
 		_color = new Color(255,255,255);
-		this._Ka = 1.0;
+		this._Ka = 0.95;
 	}
 
 	//copy cons
@@ -49,9 +49,9 @@ public class AmbientLight extends Light {
 	@Override
 	public Color getIntensity() {
 		
-		float r=(float)(_color.getRed()*_Ka);
-		float g=(float)(_color.getGreen()*_Ka);
-		float b=(float)(_color.getBlue()*_Ka);
+		float r=(float)(_color.getRed()*_Ka)/250;
+		float g=(float)(_color.getGreen()*_Ka)/250;
+		float b=(float)(_color.getBlue()*_Ka)/250;
 		return new Color(r, g, b);
 	}
 }

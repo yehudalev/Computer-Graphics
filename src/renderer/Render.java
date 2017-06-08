@@ -59,7 +59,7 @@ public class Render {
 					Map<Geometry, Point3D> closetPoint = getClosetPoint(interSectionPoints);
 					Set<Geometry> v = closetPoint.keySet();
 					Geometry firstGeo = v.iterator().next();
-					_imageWriter.writePixel(i, j, calcColor(firstGeo, closetPoint.get(firstGeo)));
+					_imageWriter.writePixel(j, i, calcColor(firstGeo, closetPoint.get(firstGeo)));
 				}
 			}
 	}
@@ -72,7 +72,8 @@ public class Render {
 		while (geometries.hasNext()) {
 			geometry = geometries.next();
 			List<Point3D> geometryIntersectionPoints = geometry.FindIntersections(ray);
-			intersectionPoints.put(geometry, geometryIntersectionPoints);
+			if(!geometryIntersectionPoints.isEmpty())
+				intersectionPoints.put(geometry, geometryIntersectionPoints);
 		}
 		return intersectionPoints;
 	}
@@ -90,10 +91,12 @@ public class Render {
 		Map<Geometry, Point3D> minDistancePoint = new HashMap<Geometry, Point3D>();
 		for (Entry<Geometry, List<Point3D>> entry : intersectionPoints.entrySet()) {
 			for (Point3D point : entry.getValue()) {
-				if (P0.distance(point) < distance) {
+				if (point.distance(P0) < distance) {
 					minDistancePoint.clear();
 					minDistancePoint.put(entry.getKey(), new Point3D(point));
+					distance = P0.distance(point); 
 				}
+				
 			}
 		}
 		return minDistancePoint;
@@ -113,13 +116,13 @@ public class Render {
 	       if(_red>250)
 	    	   _red=250;
 	       
-	       if(_red>250)
+	       if(_green>250)
 	    	   _green=250;
 	       
 	       if(_blue>250)
 	    	   _blue=250;
 	       
-	       return new Color(_red, _green, _blue);
+	       return new Color(_red/250, _green/250, _blue/250);
 	    }
 
 	

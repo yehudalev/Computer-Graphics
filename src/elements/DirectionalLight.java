@@ -2,7 +2,7 @@ package elements;
 
 import java.awt.Color;
 import primitives.*;
-public class DirectionalLight extends Light {
+public class DirectionalLight extends Light implements LightSource{
 
 	private Vector direction;
 	
@@ -18,10 +18,10 @@ public class DirectionalLight extends Light {
 		this._color= new Color(color.getRGB());
 		this.direction=new Vector(direction);
 	}
+	
 	@Override
 	public Color getIntensity() {
-		// TODO Auto-generated method stub
-		return null;
+		return this._color;
 	}
 
 	public Vector getDirection() {
@@ -30,6 +30,18 @@ public class DirectionalLight extends Light {
 
 	public void setDirection(Vector direction) {
 		this.direction = new Vector(direction);
+	}
+
+	@Override
+	public Color getIntensity(Point3D point) {
+		// TODO Auto-generated method stub
+				return null;
+	}
+
+	@Override
+	public Vector getL(Point3D point) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
