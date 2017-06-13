@@ -130,6 +130,7 @@ public class Render {
 	       
 	       
 
+
 	       if(_red>255)
 	    	   _red=255;
 	       
@@ -138,7 +139,7 @@ public class Render {
 	       
 	       if(_blue>255)
 	    	   _blue=255;
-
+	     
 	       return new Color(_red, _green, _blue);
 	    }
 	 
@@ -190,4 +191,13 @@ public class Render {
 		 return new Color(_red, _green, _blue); 
 	 }
 	 	 
+
+	  public void printGrid(int interval){
+	        for (int i = 0; i < _imageWriter.getWidth();i+=interval) {
+	            for (int j = 0; j <_imageWriter.getHeight();j++) {
+	                _imageWriter.writePixel(i, j, Color.WHITE);
+	                _imageWriter.writePixel(j, i, Color.WHITE);
+	            }
+	        }
+	    }
 }

@@ -48,7 +48,7 @@ public class RenderTest
         Render render = new Render(imageWriter, scene);
          
         render.renderImage();
-       //render.printGrid(50);
+     //   render.printGrid(50);
         render.writeToImage();
          
     }

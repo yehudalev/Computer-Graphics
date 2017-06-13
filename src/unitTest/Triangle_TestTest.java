@@ -54,8 +54,20 @@ public class Triangle_TestTest {
 	for (Point3D iPoint: intersectionPointsTriangle2)
 	System.out.println(iPoint);
 	}
-
+	
+	//test Get Normal
 	@Test
+    public void testGetNormal()  {
+        System.out.println("getNormal");
+        Point3D point = new Point3D(2,1,-1);
+        Triangle instance = new Triangle(new Point3D(2,1,-1),new Point3D(4,2,-2),new Point3D(3,2,-1));
+        String expResult = "( -0.58 , 0.58 , -0.58 )";
+        String result = instance.getNormal(point).toString();
+        assertEquals(expResult, result);
+
+    }
+
+/*	@Test
     public void TestGetNormal()
     {
         Triangle triangle = new Triangle(new Point3D( 0,  1, -2),
@@ -64,7 +76,7 @@ public class Triangle_TestTest {
         Vector normal = triangle.getNormal(new Point3D());
         System.out.println(normal);
         assertEquals("Wrong Normal", normal.toString(),"( -0.00 , 0.00 , 1.00 )");
-    }
+    }*/
 
 
 }

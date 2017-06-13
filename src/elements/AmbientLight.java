@@ -17,7 +17,7 @@ public class AmbientLight extends Light {
 	//copy cons
 	public AmbientLight(AmbientLight aLight) {
 		_color = new Color(aLight.getColor().getRGB());
-		this._Ka=aLight._Ka;
+		
 	}
 	
 	//full cons

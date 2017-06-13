@@ -45,6 +45,20 @@ public class Plane_Test {
 		for (Point3D iPoint : intersectionPointsPlane2)
 			System.out.println(iPoint);
 	}
+	
+	
+	//test Get Normal
+	 @Test
+	    public void testGetNormal() {
+	        System.out.println("getNormal");
+	        Point3D point=new Point3D (1,0,0);
+	        Plane instance = new Plane(new Vector(1,1,1),new Point3D (1,0,0));
+	        String expResult = "( 1.00 , 1.00 , 1.00 )";
+	        String result = instance.getNormal(point).toString();
+	        assertEquals(expResult, result);
+	        // TODO review the generated test code and remove the default call to fail.
+	        //fail("The test case is a prototype.");
+	    }
 	/*
 	@Test
 	public void testIntersectionPoints2() {
