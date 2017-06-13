@@ -35,7 +35,7 @@ public class Scene {
 		_camera=new Camera(scene._camera);
 		_screenDistance=scene._screenDistance;
 		_geometries.addAll(scene._geometries);
-		
+		_lights.addAll(scene._lights);
 	}
 	
 	//full cons
@@ -103,11 +103,14 @@ public class Scene {
 	}
 	public void addLight(LightSource light){
 		_lights.add(light);
+		
 	}
 	
 	public Iterator<LightSource> getLightsIterator()
 	{
+		System.out.println("rrrrrrrrr");
 		return _lights.iterator();
+		
 	}
 
 

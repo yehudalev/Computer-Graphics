@@ -19,6 +19,7 @@ public class DirectionalLight extends Light implements LightSource{
 		this.direction=new Vector(direction);
 	}
 	
+	
 	@Override
 	public Color getIntensity() {
 		return new Color(this._color.getRGB());
@@ -35,11 +36,11 @@ public class DirectionalLight extends Light implements LightSource{
 	@Override
 	public Color getIntensity(Point3D point) {
 		return new Color(_color.getRGB());
-	}
+	} 
 
 	@Override
 	public Vector getL(Point3D point) {
-		return new Vector(this.direction);
+		return new Vector(point); //the sun for example is too far 
 	}
 	
 	

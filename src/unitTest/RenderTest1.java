@@ -42,9 +42,9 @@ public class RenderTest1 {
 		//add emotion to each geometric 
 				
 				
-				triangle.set_emmission(new Color(0,240,0));
-				triangle2.set_emmission(new Color(235, 0 , 235));
-				triangle4.set_emmission(new Color(20, 139, 230));
+				triangle.set_emmission(new Color(51, 255, 51));
+				triangle2.set_emmission(new Color(102,255,102));
+				triangle4.set_emmission(new Color(255, 102, 102));
 				
 				
 		scene.addGeometry(triangle);

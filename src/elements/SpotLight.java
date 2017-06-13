@@ -17,7 +17,9 @@ public class SpotLight extends PointLight{
 	
 	@Override
 	public Vector getL(Point3D point) {
-		return new Vector(_position, point);
+		Vector vector=new Vector(_position, point);
+		vector.normalize();
+		return new Vector(vector);
 	}
 	
 	@Override

@@ -81,7 +81,22 @@ public class Render {
 	// calculate point color
 	private Color calcColor(Geometry geometry, Point3D point) {
 		
-        return addColors(geometry.get_emmission(),_scene.getAmbientLight().getIntensity());
+		Color ambientLight = _scene.getAmbientLight().getIntensity();
+		Color emissionLight = geometry.get_emmission();
+		//we need to calculate each source light in the point, then we need iterator
+		Iterator<LightSource> lights = _scene.getLightsIterator();
+		Color diffuseLight=new Color(0, 0, 0);
+		Color specularLight=new Color(0, 0, 0);
+		while (lights.hasNext()){
+			diffuseLight =addColors(diffuseLight, calcDiffusiveComp(geometry.get_material().getKd(), geometry.getNormal(point),
+					lights.next().getL(point), lights.next().getIntensity(point)));
+			specularLight=addColors(specularLight, calcSpecularComp(geometry.get_material().getKs(), new Vector(point,_scene.getCamera().getP0()),
+					geometry.getNormal(point), lights.next().getL(point), geometry.get_nShininess(), lights.next().getIntensity(point)));
+			
+		}
+        Color a_e = addColors(emissionLight,ambientLight);
+        Color d_s = addColors(diffuseLight, specularLight);
+        return addColors(a_e, d_s);
 	}
 
 	// get the closet point to calculate the color for our image
@@ -113,6 +128,7 @@ public class Render {
 	       int _green=a.getGreen()+b.getGreen();
 	       int _blue=a.getBlue()+b.getBlue();
 	       
+	       
 
 	       if(_red>255)
 	    	   _red=255;
@@ -125,7 +141,53 @@ public class Render {
 
 	       return new Color(_red, _green, _blue);
 	    }
-
-	
-
+	 
+	 private Color calcDiffusiveComp(double Kd,
+			 Vector normal,
+			 Vector L, 
+			 Color lightIntensity){
+		 double kd_N_L = (Kd*(normal.dotProduct(L)));   //here we calculate the real number of the diffuse part 
+		 int _red=(int)(lightIntensity.getRed()*kd_N_L);
+	     int _green=(int)(lightIntensity.getGreen()*kd_N_L);
+	     int _blue=(int)(lightIntensity.getBlue()*kd_N_L);
+	      
+	     if(_red>255)
+	    	   _red=255;
+	       
+	      if(_green>255)
+	    	   _green=255;
+	       
+	      if(_blue>255)
+	    	   _blue=255;
+	      
+		 return new Color(_red, _green, _blue); 
+	 }
+	 
+	 private Color calcSpecularComp(double Ks, Vector P0,
+			 Vector normal, Vector L, double Shininess,
+			 Color lightIntensity){
+		 Vector r=new Vector(normal);
+		 double tmp= r.dotProduct(L); //here we get the dot product of D*L as shown in the נוסחיה
+		 r.scale(tmp*2);  //here we multiplex with the result
+		 Vector vecTemp=new Vector(L);
+		 vecTemp.subtract(r);
+		 r= vecTemp;
+		 
+		 double ks_V_R = Ks*(Math.pow(P0.dotProduct(r), Shininess));   //here we calculate the real number of the specular part 
+		 int _red=(int)(lightIntensity.getRed()*ks_V_R);
+	     int _green=(int)(lightIntensity.getGreen()*ks_V_R);
+	     int _blue=(int)(lightIntensity.getBlue()*ks_V_R);
+	      
+	     if(_red>255)
+	    	   _red=255;
+	       
+	      if(_green>255)
+	    	   _green=255;
+	       
+	      if(_blue>255)
+	    	   _blue=255;
+	      
+		 return new Color(_red, _green, _blue); 
+	 }
+	 	 
 }

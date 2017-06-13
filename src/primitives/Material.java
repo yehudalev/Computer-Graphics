@@ -26,7 +26,18 @@ public class Material {
 		this._n = material._n;
 
 	}
+	
+	
+	public Material(double kd, double ks, double kr, double kt, double n) {
+		this._Kd = kd;
+		this._Ks = ks;
+		this._Kr = kr;
+		this._Kt = kt;
+		this._n = n;
 
+	}
+
+	
 	// getters
 
 	public double getKd() {
