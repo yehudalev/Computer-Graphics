@@ -53,12 +53,24 @@ public class Sphere_TestTest {
 			System.out.println(iPoint);
 		}
 	}
+	
+	//test Get Normal
+	 @Test
+	    public void testGetNormal() {
+	        System.out.println("getNormal");
+	        Point3D point=new Point3D (4,2,1);
+	        Sphere instance = new Sphere(5,new Point3D (5,5,5));
+	        String expResult = "( -0.20 , -0.59 , -0.78 )";
+	        String result = instance.getNormal(point).toString();
+	        assertEquals(expResult, result);
+	    }
+	
 
-	@Test
-	public void TestGetNormal() {
+	/*@Test
+	public void TestGetNormal2() {
 		Sphere sphere = new Sphere(10, new Point3D(0.0, 0.0, -3.0));
 		Vector normal = sphere.getNormal(new Point3D(5.0, 5.0, -3.0));
 		System.out.println(normal);
 		assertEquals("Wrong Normal! ", normal.toString(), "( 0.71 , 0.71 , 0.00 )");
-	}
+	}*/
 }
