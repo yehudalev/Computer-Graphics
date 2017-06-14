@@ -11,7 +11,7 @@ public class AmbientLight extends Light {
 
 	//default cons
 	public AmbientLight() {
-		_color = new Color(255,255,255);
+		_color = new Color(255, 255, 255);
 	}
 
 	//copy cons

@@ -51,5 +51,6 @@ public class RenderTest_Phong {
 	        ImageWriter imageWriter = new ImageWriter("SceneTestPoint", 500, 500, 500, 500);
 	        Render render = new Render(imageWriter, scene);
 	        render.renderImage();
+	        render.writeToImage();
 	    }
 }

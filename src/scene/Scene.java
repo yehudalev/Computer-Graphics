@@ -108,9 +108,7 @@ public class Scene {
 	
 	public Iterator<LightSource> getLightsIterator()
 	{
-		System.out.println("rrrrrrrrr");
 		return _lights.iterator();
-		
 	}
 
 
