@@ -13,7 +13,7 @@ public class Camera {
 	// default cons
 	public Camera() {
 		this._P0 = new Point3D();
-		this._vUp = new Vector(1, 0, 0);
+		this._vUp = new Vector(0, 1, 0);
 		this._vTo = new Vector(0, 0, -1);
 		this._vRight = new Vector();
 	}
@@ -55,12 +55,12 @@ public class Camera {
 	// setters
 	public void set_vUp(Vector vUp) {
 		this._vUp = new Vector(vUp);
-		this._vRight = this._vUp.crossProduct(_vTo);
+		this._vRight = this._vTo.crossProduct(_vUp);
 	}
 
 	public void set_vTo(Vector vTo) {
 		this._vTo = new Vector(vTo);
-		this._vRight = this._vUp.crossProduct(_vTo);
+		this._vRight = this._vTo.crossProduct(_vUp);
 	}
 
 	public void setP0(Point3D P0) {
@@ -107,21 +107,20 @@ public class Camera {
 
 		// calculate vRight - vUp into vRight
 		vRight.subtract(vUp);
-		
+
 		// calculate P, the point in the view plan the the ray pass there.
 		Pc.add(vRight);
 		Point3D P = new Point3D(Pc);
 
 		// calculate the direction of the ray P-P0
-		
-		
+
 		Point3D tmp = new Point3D(P);
 		tmpV = new Vector(this._P0);
 		tmp.subtract(tmpV);
 		Vector direction = new Vector(tmp);
 
 		// the final calculate- the ray.
-		//return new Ray(this._P0, direction);
+		// return new Ray(this._P0, direction);
 		return new Ray(P, direction);
 	}
 }

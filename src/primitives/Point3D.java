@@ -1,4 +1,5 @@
 package primitives;
+
 //
 public class Point3D extends Point2D {
 
@@ -77,9 +78,9 @@ public class Point3D extends Point2D {
 
 	// NOT IMPLEMENT
 	public double distance(Point3D point) {
-		return Math.sqrt(Math.pow(this._x.get_coordinate()-point._x.get_coordinate(), 2)
-				+Math.pow(this._y.get_coordinate()-point._y.get_coordinate(), 2)
-				+Math.pow(this._z.get_coordinate()-point._z.get_coordinate(), 2));
+		return Math.sqrt(Math.pow(this._x.get_coordinate() - point._x.get_coordinate(), 2)
+				+ Math.pow(this._y.get_coordinate() - point._y.get_coordinate(), 2)
+				+ Math.pow(this._z.get_coordinate() - point._z.get_coordinate(), 2));
 	}
 
 }

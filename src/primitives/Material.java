@@ -26,8 +26,7 @@ public class Material {
 		this._n = material._n;
 
 	}
-	
-	
+
 	public Material(double kd, double ks, double kr, double kt, double n) {
 		this._Kd = kd;
 		this._Ks = ks;
@@ -37,7 +36,6 @@ public class Material {
 
 	}
 
-	
 	// getters
 
 	public double getKd() {

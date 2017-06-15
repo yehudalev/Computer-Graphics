@@ -13,7 +13,7 @@ public class Sphere extends RadialGeometry {
 	public Sphere() {
 		super();
 		this._center = new Point3D();
-		this.set_emmission(new Color(0,0,0));
+		this.set_emmission(new Color(0, 0, 0));
 	}
 
 	// copy cons
@@ -26,19 +26,19 @@ public class Sphere extends RadialGeometry {
 	}
 
 	// full cons
-	public Sphere(double radius, Point3D center,Color _em,Material _mat,double _nSh) {
+	public Sphere(double radius, Point3D center, Color _em, Material _mat, double _nSh) {
 		super(radius);
 		this._center = new Point3D(center);
 		this.set_emmission(_em);
 		this.set_material(_mat);
 		this.set_nShininess(_nSh);
-		
+
 	}
+
 	public Sphere(double radius, Point3D center) {
 		super(radius);
 		this._center = new Point3D(center);
-	
-		
+
 	}
 
 	// getter
@@ -51,8 +51,8 @@ public class Sphere extends RadialGeometry {
 		this._center = new Point3D(_center);
 	}
 
-	
-	//The function returns a list of all the points of intersection with the sphere
+	// The function returns a list of all the points of intersection with the
+	// sphere
 	@Override
 	public List<Point3D> FindIntersections(Ray ray) {
 
@@ -75,28 +75,25 @@ public class Sphere extends RadialGeometry {
 			_p1.add(_tmp_v);
 			_intersectionPointList.add(_p1);
 		}
-		
-			if (_t2 > 0) {
-				Vector _tmp_v2 = new Vector(ray.get_direction());
-				_tmp_v2.scale(_t2);
-				Point3D _p2 = new Point3D(ray.get_POO());
-				_p2.add(_tmp_v2);
-				_intersectionPointList.add(_p2);
-			}
-		
+
+		if (_t2 > 0) {
+			Vector _tmp_v2 = new Vector(ray.get_direction());
+			_tmp_v2.scale(_t2);
+			Point3D _p2 = new Point3D(ray.get_POO());
+			_p2.add(_tmp_v2);
+			_intersectionPointList.add(_p2);
+		}
+
 		return _intersectionPointList;
 
 	}
 
-	//The function return the normal of the sphere
+	// The function return the normal of the sphere
 	@Override
 	public Vector getNormal(Point3D point) {
 		Vector _normal = new Vector(_center, point);
 		_normal.normalize();
 		return _normal;
 	}
-
-	
-
 
 }

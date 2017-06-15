@@ -1,4 +1,5 @@
 package primitives;
+
 //
 public class Ray implements Comparable<Ray> {
 

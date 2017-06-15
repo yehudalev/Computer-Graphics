@@ -148,7 +148,7 @@ public class Render {
 											// number
 											// of the diffuse part
 		if (N_L < 0)
-			return _scene.getBackground();
+			N_L = (-1) * N_L;
 		N_L = Kd * N_L;
 
 		int _red = (int) (lightIntensity.getRed() * N_L);
@@ -176,10 +176,10 @@ public class Render {
 		P0.normalize();
 
 		double V_R = P0.dotProduct(r);
-		
+
 		if (V_R < 0)
-			return _scene.getBackground(); // if it is in the other side of the
-											// geometry
+			V_R = (-1) * V_R; // if it is in the other side of the
+								// geometry
 		V_R = Ks * Math.pow(V_R, Shininess);
 		int _red = (int) (lightIntensity.getRed() * V_R);
 		int _green = (int) (lightIntensity.getGreen() * V_R);

@@ -16,13 +16,16 @@ public class SpotLight extends PointLight {
 
 	@Override
 	public Vector getL(Point3D point) {
-		return super.getL(point);
+		Vector vector = new Vector(this._position, point);
+		vector.normalize();
+		return vector;
+		// return super.getL(point);
 	}
 
 	@Override
 	public Color getIntensity(Point3D point) {
 		double distance = point.distance(_position);
-		//calculate direction dot product L
+		// calculate direction dot product L
 		double tmp = _direction.dotProduct(getL(point));
 
 		tmp = tmp / (_Kc + distance * _Kl + distance * distance * _Kq);

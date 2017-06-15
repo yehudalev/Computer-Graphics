@@ -48,19 +48,18 @@ public class Point3D_Test {
 		point1.subtract(vec);
 		assertEquals(0, point1.compareTo(result));
 	}
-	
-	//test Distance:Between two pointD3
+
+	// test Distance:Between two pointD3
 	@Test
 	public void testDistance() {
 		Point3D point1 = new Point3D(new Coordinate(4.5), new Coordinate(3), new Coordinate(2));
 		Point3D point2 = new Point3D(new Coordinate(3), new Coordinate(6), new Coordinate(-3));
-		
-		double exp=6.02;
-		double result= point1.distance(point2);
-		assertEquals(exp,result,0.01);
-		
+
+		double exp = 6.02;
+		double result = point1.distance(point2);
+		assertEquals(exp, result, 0.01);
+
 	}
-	
 
 	///////////// test by david chean
 
@@ -102,17 +101,16 @@ public class Point3D_Test {
 		instance.subtract(vector);
 		assertTrue("Substruct failed! ", instance.compareTo(new Point3D(3.0, 3.0, 3.0)) == 0);
 	}
-	
-	  @Test
-	    public void Test05() {
-	        System.out.println("Test05: Point3D distance");
-	        Point3D point = new Point3D(-20.5, 55, 9.25);
-	        Point3D instance = new Point3D(75, -10, -100);
-	        double expResult = 159.0;
-	        double result = instance.distance(point);
-	        assertEquals(expResult, result, 0.01);
 
-	    }
+	@Test
+	public void Test05() {
+		System.out.println("Test05: Point3D distance");
+		Point3D point = new Point3D(-20.5, 55, 9.25);
+		Point3D instance = new Point3D(75, -10, -100);
+		double expResult = 159.0;
+		double result = instance.distance(point);
+		assertEquals(expResult, result, 0.01);
 
+	}
 
 }

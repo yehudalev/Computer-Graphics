@@ -17,8 +17,7 @@ public abstract class Geometry {
 
 	public abstract Vector getNormal(Point3D point);
 
-
-	//getters and setters
+	// getters and setters
 	public Color get_emmission() {
 		return _emmission;
 	}

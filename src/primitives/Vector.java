@@ -1,4 +1,5 @@
 package primitives;
+
 //
 public class Vector implements Comparable<Vector> {
 
@@ -23,15 +24,14 @@ public class Vector implements Comparable<Vector> {
 	public Vector(Vector vector) {
 		_head = new Point3D(vector._head);
 	}
-	
-	//cons by 2 point
-	public Vector(Point3D p1, Point3D p2)
-	{
-		double _x=p2._x.get_coordinate()-p1._x.get_coordinate();
-		double _y=p2._y.get_coordinate()-p1._y.get_coordinate();
-		double _z=p2.get_z().get_coordinate()-p1.get_z().get_coordinate();
-				
-		_head = new Point3D( _x,_y,_z);
+
+	// cons by 2 point
+	public Vector(Point3D p1, Point3D p2) {
+		double _x = p2._x.get_coordinate() - p1._x.get_coordinate();
+		double _y = p2._y.get_coordinate() - p1._y.get_coordinate();
+		double _z = p2.get_z().get_coordinate() - p1.get_z().get_coordinate();
+
+		_head = new Point3D(_x, _y, _z);
 	}
 
 	// getter and setter
@@ -97,8 +97,7 @@ public class Vector implements Comparable<Vector> {
 	// return the current vector
 	public double length() {
 
-		return Math.sqrt(Math.pow(this._head._x.get_coordinate(), 2) 
-				+ Math.pow(this._head._y.get_coordinate(), 2)
+		return Math.sqrt(Math.pow(this._head._x.get_coordinate(), 2) + Math.pow(this._head._y.get_coordinate(), 2)
 				+ Math.pow(this._head.get_z().get_coordinate(), 2));
 
 	}

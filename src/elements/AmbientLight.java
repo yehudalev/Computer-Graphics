@@ -6,27 +6,27 @@ import primitives.Point3D;
 //import java.util.Map;
 
 public class AmbientLight extends Light {
-	
+
 	private double _Ka = 0.1;
 
-	//default cons
+	// default cons
 	public AmbientLight() {
 		_color = new Color(255, 255, 255);
 	}
 
-	//copy cons
+	// copy cons
 	public AmbientLight(AmbientLight aLight) {
 		_color = new Color(aLight.getColor().getRGB());
-		
+
 	}
-	
-	//full cons
+
+	// full cons
 	public AmbientLight(int r, int g, int b) {
 		_color = new Color(r, g, b);
 	}
 
-	//getters and setters
-	
+	// getters and setters
+
 	public Color getColor() {
 		return _color;
 	}
@@ -41,16 +41,15 @@ public class AmbientLight extends Light {
 		return _Ka;
 	}
 
-	
-	//operations
-	
-	//get intensity
+	// operations
+
+	// get intensity
 	@Override
 	public Color getIntensity() {
-		
-		int r=(int)(_color.getRed()*_Ka);
-		int g=(int)(_color.getGreen()*_Ka);
-		int b=(int)(_color.getBlue()*_Ka);
+
+		int r = (int) (_color.getRed() * _Ka);
+		int g = (int) (_color.getGreen() * _Ka);
+		int b = (int) (_color.getBlue() * _Ka);
 		return new Color(r, g, b);
 	}
 }
