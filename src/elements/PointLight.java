@@ -17,18 +17,21 @@ public class PointLight extends Light implements LightSource {
 		this._position = position;
 	}
 
+	//get intensity color 
 	@Override
 	public Color getIntensity() {
 		return new Color(this._color.getRGB());
 	}
 
+	//get the vector from the source light to the point the we calculate
 	@Override
 	public Vector getL(Point3D point) {
 		Vector vector = new Vector(this._position, point);
+		
 		vector.normalize();
 		return vector;
 	}
-
+	//we implement the Light source operation, get the intensity of the direction light
 	@Override
 	public Color getIntensity(Point3D point) {
 		double distance = point.distance(_position);

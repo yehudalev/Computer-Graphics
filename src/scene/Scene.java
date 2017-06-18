@@ -101,11 +101,13 @@ public class Scene {
 		return _geometries.iterator();
 	}
 
+	//add new light to the container 
 	public void addLight(LightSource light) {
 		_lights.add(light);
 
 	}
 
+	//get iterator for the light source container
 	public Iterator<LightSource> getLightsIterator() {
 		return _lights.iterator();
 	}

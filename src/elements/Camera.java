@@ -23,7 +23,7 @@ public class Camera {
 		this._P0 = new Point3D(camera._P0);
 		this._vUp = new Vector(camera._vUp);
 		this._vTo = new Vector(camera._vTo);
-		this._vRight = new Vector(this._vTo.crossProduct(_vUp));
+		this._vRight = new Vector(_vUp.crossProduct(_vTo));
 	}
 
 	// full cons
@@ -32,7 +32,7 @@ public class Camera {
 		this._P0 = new Point3D(P0);
 		this._vUp = new Vector(vUp);
 		this._vTo = new Vector(vTo);
-		this._vRight = new Vector(this._vTo.crossProduct(_vUp));
+		this._vRight = new Vector(_vUp.crossProduct(_vTo));
 	}
 
 	// getter
@@ -55,12 +55,12 @@ public class Camera {
 	// setters
 	public void set_vUp(Vector vUp) {
 		this._vUp = new Vector(vUp);
-		this._vRight = this._vTo.crossProduct(_vUp);
+		this._vRight = _vUp.crossProduct(_vTo);
 	}
 
 	public void set_vTo(Vector vTo) {
 		this._vTo = new Vector(vTo);
-		this._vRight = this._vTo.crossProduct(_vUp);
+		this._vRight = _vUp.crossProduct(_vTo);
 	}
 
 	public void setP0(Point3D P0) {

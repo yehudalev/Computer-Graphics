@@ -126,6 +126,7 @@ public class Render {
 		this._imageWriter.writeToimage();
 	}
 
+	//function that sum 2 color into one color
 	private Color addColors(Color a, Color b) {
 
 		int _red = a.getRed() + b.getRed();
@@ -139,17 +140,14 @@ public class Render {
 		return new Color(_red, _green, _blue);
 	}
 
+	//calculate the diffus part of Phong model
 	private Color calcDiffusiveComp(double Kd, Vector normal, Vector l, Color lightIntensity) {
 
 		Vector L = new Vector(l);
-		L.scale(-1);
-
-		double N_L = normal.dotProduct(L); // here we calculate the dot product
+		
+		double N_L =Math.abs(normal.dotProduct(L)); // here we calculate the dot product
 											// number
 											// of the diffuse part
-		if (N_L < 0)
-			N_L = (-1) * N_L;
-		N_L = Kd * N_L;
 
 		int _red = (int) (lightIntensity.getRed() * N_L);
 		int _green = (int) (lightIntensity.getGreen() * N_L);
@@ -162,10 +160,11 @@ public class Render {
 		return new Color(_red, _green, _blue);
 	}
 
+	//calculate the Specular part of Phong model
 	private Color calcSpecularComp(double Ks, Vector P0, Vector normal, Vector L, double Shininess,
 			Color lightIntensity) {
 		Vector r = new Vector(normal);
-		double tmp = r.dotProduct(L); // here we get the dot product of D*L as
+		double tmp =r.dotProduct(L); // here we get the dot product of D*L as
 										// shown in the נוסחיה
 		tmp = 2 * tmp;
 		r.scale(tmp); // here we multiplex with the result
@@ -175,11 +174,9 @@ public class Render {
 		r.normalize();
 		P0.normalize();
 
-		double V_R = P0.dotProduct(r);
+		double V_R = Math.abs(P0.dotProduct(r));
 
-		if (V_R < 0)
-			V_R = (-1) * V_R; // if it is in the other side of the
-								// geometry
+		
 		V_R = Ks * Math.pow(V_R, Shininess);
 		int _red = (int) (lightIntensity.getRed() * V_R);
 		int _green = (int) (lightIntensity.getGreen() * V_R);
@@ -192,6 +189,8 @@ public class Render {
 		return new Color(_red, _green, _blue);
 	}
 
+	
+	//optional, here we print the grid (white lines)
 	public void printGrid(int interval) {
 		for (int i = 0; i < _imageWriter.getWidth(); i += interval) {
 			for (int j = 0; j < _imageWriter.getHeight(); j++) {
