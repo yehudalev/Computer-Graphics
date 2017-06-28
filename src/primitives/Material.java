@@ -49,6 +49,14 @@ public class Material {
 	public double getN() {
 		return this._n;
 	}
+	
+	public double getKr() {
+		return this._Kr;
+	}
+	
+	public double getKt() {
+		return this._Kt;
+	}
 
 	// setters
 	public void setKd(double _Kd) {
@@ -58,7 +66,7 @@ public class Material {
 	public void setKs(double _Ks) {
 		this._Ks = _Ks;
 	}
-
+	
 	public void setN(int _n) {
 		this._n = _n;
 	}

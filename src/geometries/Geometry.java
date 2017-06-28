@@ -25,6 +25,7 @@ public abstract class Geometry {
 	public void set_emmission(Color _emmission) {
 		this._emmission = new Color(_emmission.getRGB());
 	}
+	
 
 	public Material get_material() {
 		return _material;
@@ -41,4 +42,20 @@ public abstract class Geometry {
 	public void set_nShininess(double _nShininess) {
 		this._nShininess = _nShininess;
 	}
+	
+	  public void setKs(double ks){
+	        _material.setKs(ks);
+	    }
+	  
+    public void setKd(double kd){
+        _material.setKd(kd);
+    }
+    
+	public void setKr(double Kr){
+        _material.setKr(Kr);
+    } 
+	
+	 public void setKt(double Kt){
+	        _material.setKt(Kt);
+	    }  
 }

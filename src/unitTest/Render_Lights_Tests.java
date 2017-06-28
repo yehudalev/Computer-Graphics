@@ -144,5 +144,204 @@ public class Render_Lights_Tests {
 
 	}
 	
+	@Test
+	public void spotLightTest3(){
+
+	    Scene scene = new Scene();
+
+	    Triangle triangle = new Triangle(new Point3D(  3500,  3500, -2000),
+	            new Point3D( -3500, -3500, -1000),
+	            new Point3D(  3500, -3500, -2000));
+
+	    Triangle triangle2 = new Triangle(new Point3D(  3500,  3500, -2000),
+	            new Point3D( -3500,  3500, -1000),
+	            new Point3D( -3500, -3500, -1000));
+
+	    scene.addGeometry(triangle);
+	    scene.addGeometry(triangle2);
+
+	    scene.addLight(new SpotLight(new Color(255, 100, 100), new Point3D(180, 180, -10),
+	            new Vector(-2, -2, -3), 0, 0.000001, 0.0000005));
+
+	    Sphere sphere = new Sphere (800, new Point3D(0.0, 0.0, -1000));
+	    sphere.set_nShininess(20);
+	    sphere.set_emmission(new Color(0, 0, 100));
+	    scene.addGeometry(sphere);
+
+	    ImageWriter imageWriter = new ImageWriter("Spot test 3", 500, 500, 500, 500);
+
+	    Render render = new Render(imageWriter, scene);
+
+	    render.renderImage();
+	    render.writeToImage();
+
+	}
 	
+	@Test
+
+	public void spotLightTest2(){
+
+
+		Scene scene = new Scene();
+
+		scene.setScreenDistance(200);
+
+		Sphere sphere = new Sphere(500, new Point3D(0.0, 0.0, -1000));
+
+		sphere.set_nShininess(20);
+
+		sphere.set_emmission(new Color(0, 0, 100));
+
+		scene.addGeometry(sphere);
+
+
+		Triangle triangle = new Triangle(new Point3D(-125, -225, -260),
+
+				new Point3D(-225, -125, -260),
+
+				new Point3D(-225, -225, -270));
+
+
+		triangle.set_emmission(new Color (0, 0, 100));
+
+		triangle.set_nShininess(4);
+
+		scene.addGeometry(triangle);
+
+
+		scene.addLight(new SpotLight(new Color(255, 100, 100), new Point3D(-200, -200, -150),
+
+				new Vector(2, 2, -3), 0.1, 0.00001, 0.000005));
+
+		
+
+		ImageWriter imageWriter = new ImageWriter("Spot lighting test 22222", 500, 500, 500, 500);
+
+
+		Render render = new Render(imageWriter, scene);
+
+
+		render.renderImage();
+
+		render.writeToImage();
+
+
+	}
+	
+	@Test
+
+	public void spotLightTest35(){
+
+
+		Scene scene = new Scene();
+
+		scene.setScreenDistance(200);
+
+		Sphere sphere = new Sphere(500, new Point3D(0.0, 0.0, -1000));
+
+		sphere.set_nShininess(20);
+
+		sphere.set_emmission(new Color(0, 0, 100));
+
+		scene.addGeometry(sphere);
+
+
+		Triangle triangle = new Triangle(new Point3D(-125, -225, -350),
+
+				new Point3D(-225, -125, -350),
+
+				new Point3D(-225, -225, -360));
+
+
+		triangle.set_emmission(new Color (0, 0, 100));
+
+		triangle.set_nShininess(4);
+
+		scene.addGeometry(triangle);
+
+
+		scene.addLight(new SpotLight(new Color(255, 100, 100), new Point3D(-200, -200, -150),
+
+				new Vector(2, 2, -3), 0.1, 0.00001, 0.000005));
+
+		
+
+		ImageWriter imageWriter = new ImageWriter("Spot lighting test 33333", 500, 500, 500, 500);
+
+
+		Render render = new Render(imageWriter, scene);
+
+
+		render.renderImage();
+
+		render.writeToImage();
+
+
+	}
+	
+	
+	@Test
+
+	public void peramida(){
+
+
+		Scene scene = new Scene();
+
+		scene.setScreenDistance(200);
+
+		Triangle floor1 =new Triangle(new Point3D(0, 0, -1500), new Point3D(-100, 0, -1250), new Point3D(100, 0, -1250));
+		Triangle floor2 =new Triangle(new Point3D(0, 0, -1000), new Point3D(-100, 0, -1250), new Point3D(100, 0, -1250));
+		
+		Triangle tri1 =new Triangle(new Point3D(0, 0, -1500), new Point3D(100, 0, -1250), new Point3D(0, 100, -1250));
+		Triangle tri2 =new Triangle(new Point3D(0, 0, -1500), new Point3D(-100, 0, -1250), new Point3D(0, 100, -1250));
+		Triangle tri3 =new Triangle(new Point3D(0, 0, -1000), new Point3D(-100, 0, -1250), new Point3D(0, 100, -1250));
+		Triangle tri4 =new Triangle(new Point3D(100, 0, -100), new Point3D(100, 0, -1250), new Point3D(0, 100, -1250));
+		
+		
+		
+		
+		Sphere sphere = new Sphere(500, new Point3D(0.0, 0.0, -1000));
+		
+		
+		
+
+		sphere.set_nShininess(20);
+
+		sphere.set_emmission(new Color(0, 0, 100));
+
+		scene.addGeometry(sphere);
+
+
+		Triangle triangle = new Triangle(new Point3D(-125, -225, -350),
+
+				new Point3D(-225, -125, -350),
+
+				new Point3D(-225, -225, -360));
+
+
+		triangle.set_emmission(new Color (0, 0, 100));
+
+		triangle.set_nShininess(4);
+
+		scene.addGeometry(triangle);
+
+
+		scene.addLight(new SpotLight(new Color(255, 100, 100), new Point3D(-200, -200, -150),
+
+				new Vector(2, 2, -3), 0.1, 0.00001, 0.000005));
+
+		
+
+		ImageWriter imageWriter = new ImageWriter("Spot lighting test 33333", 500, 500, 500, 500);
+
+
+		Render render = new Render(imageWriter, scene);
+
+
+		render.renderImage();
+
+		render.writeToImage();
+
+
+	}
 }

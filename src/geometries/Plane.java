@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import primitives.*;
 
-public class Plane extends RadialGeometry {
+public class Plane extends RadialGeometry implements FlatGeometry{
 	private Vector _normal;
 	private Point3D _Q;
 
